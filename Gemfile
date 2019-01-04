@@ -40,6 +40,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'sassc-rails', '>= 2.0.0'
 
+# Use jquery for javascript
+gem 'jquery-rails'
+
 # Use font awesome for DevMatch logo
 gem 'font-awesome-sass', '4.6.2'
 
