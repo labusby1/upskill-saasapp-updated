@@ -56,6 +56,7 @@ gem 'stripe', '1.48.0'
 
 # Use figaro for env variables
 gem 'figaro', '1.1.1'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
