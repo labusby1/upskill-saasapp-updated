@@ -5,3 +5,17 @@ User Profiles
 * User should be able to create and view their profile
 * User profile should have a profile picture
 * User should be able to view all user profiles
+
+
+Stylizing DevMatch
+
+* Change the Saasapp title to DevMatch
+* Add a footer
+    * column setup and organized by News&Info, Othersites
+    * footer should have a link to my site
+    * DevMatch logo and link to frontpage
+    * FAQ link
+
+* About page     
+    * Change about page to explain better the site's purpose.
+    * Link to the upskill course website

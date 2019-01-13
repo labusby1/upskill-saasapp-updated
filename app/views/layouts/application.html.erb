@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Saasapp</title>
+    <title>DevMatch</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -54,13 +54,22 @@
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
-
+    
+  
     <div class = "container flash-container">
       <% flash.each do |type, msg| %>
         <%= content_tag :div, msg, class: "alert alert-#{type}" %>
       <% end %>
     </div>
-    <%= yield %>
+    
+    <div class = 'page-wrap'>
+      <%= yield %>
+    </div>
+    
+    <footer class = 'site-footer'>
+      This is the site footer
+    </footer>
+
 
   </body>
 </html>
