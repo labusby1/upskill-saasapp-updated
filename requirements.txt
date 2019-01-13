@@ -18,3 +18,12 @@ Stylizing DevMatch
 * About page     
     * Change about page to explain better the site's purpose.
     * Link to the upskill course website
+    
+
+Community Page
+
+* Layout will be like twitter
+    * Column on left side which will have a sort by dropdown bar
+        * That will sort by entrepreneur, investor or developer
+    *
+    

@@ -1,35 +1,67 @@
 
-<div class = "continaer">
+<div class = "contianer row">
   <ul class = "list-unstyled">
     <div class = "col-md-8 col-md-offset-2">
       <h1 class = "text-center">DevMatch Community</h1>
       <p class = "text-center">Welcome to the DevMatch community. Users must fillout their profile inorder to be visible in the community.</p>
-      <% @users.each do |user| %>
-        <% if user.profile %>
-          <li>
-            <div class = "well row <%= cycle('white-bg', '') %>" >
-              <div class = "col-sm-4 text-center">
-                <% if user.profile.avatar %>
-                  <%= link_to user do %>
-                    <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
-                  <% end %>
-                <% end %>
-              </div>
-              <div>
-                <%= link_to user do %>
-                  <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
-                <% end %>
-                <p>
-                  <%= user.profile.job_title %>
-                  <%  if user.plan_id == 2 %>
-                    <span class= "label label-danger">DevMatch PRO</span>
-                  <% end %>
-                </p>
+    </div>
+    
+    <!-- Nesting rows and columns to create the Twitter style -->
+    <div class = "row">
+      <div class = "col-md-10 col-md-offset-1">
+        
+        <!-- Side Bar-->
+        <div class = "row">
+          <div class = "col-md-2 well">
+            
+            <!-- dropdown menu for searching by job title -->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort by
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "Developers", users_path(title: 'developers'), class: 'btn btn-primary btn-lg btn-block' %>
+                <%= link_to "Entrepreneurs", users_path(title: 'entrepreneurs'), class: 'btn btn-primary btn-lg btn-block' %>
+                <%= link_to "Investors", users_path(title: 'investors'), class: 'btn btn-primary btn-lg btn-block' %>
               </div>
             </div>
-          </li>
-        <% end %>
-      <% end %>
+          </div>
+          
+          <!-- Space for highlighting community members -->
+          <div class = "col-md-10">
+            <!-- if statement for sorting. defaults to showing all community members -->
+            
+            <% @users.each do |user| %>
+              <% if user.profile %>
+                <li>
+                  <div class = "well row <%= cycle('white-bg', '') %>" >
+                    <div class = "col-sm-4 text-center">
+                      <% if user.profile.avatar %>
+                        <%= link_to user do %>
+                          <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= link_to user do %>
+                        <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                      <% end %>
+                      <p>
+                        <%= user.profile.job_title %>
+                        <%  if user.plan_id == 2 %>
+                          <span class= "label label-danger">DevMatch PRO</span>
+                        <% end %>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
     </div>
+    
   </ul>
 </div>
