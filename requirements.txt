@@ -11,7 +11,6 @@ Stylizing DevMatch
 
 * Change the Saasapp title to DevMatch
 * Add a footer
-    * column setup and organized by News&Info, Othersites
     * footer should have a link to my site
     * DevMatch logo and link to frontpage
     * FAQ link

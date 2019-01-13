@@ -66,10 +66,24 @@
       <%= yield %>
     </div>
     
-    <footer class = 'site-footer'>
-      This is the site footer
+    <footer class = 'footer text-center'>
+      <div class = 'container'>
+        <%= link_to "/", class: "footer-brand" do %>
+          <i class="fa fa-group"></i>
+          DevMatch
+        <% end %>
+        |
+        <%= link_to "#" do %>
+          <i class="fa fa-question"></i>
+          FAQ
+        <% end %>
+        |
+        <%= link_to "https://vast-inlet-29334.herokuapp.com/" do %>
+          <i class = "fa fa-pencil"></i>
+          Developer's Site
+        <% end %>
+      </div>
     </footer>
-
 
   </body>
 </html>
