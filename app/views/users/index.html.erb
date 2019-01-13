@@ -20,6 +20,7 @@
                 Sort by
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "All", users_path(title: 'all'), class: 'btn btn-primary btn-lg btn-block' %>
                 <%= link_to "Developers", users_path(title: 'developers'), class: 'btn btn-primary btn-lg btn-block' %>
                 <%= link_to "Entrepreneurs", users_path(title: 'entrepreneurs'), class: 'btn btn-primary btn-lg btn-block' %>
                 <%= link_to "Investors", users_path(title: 'investors'), class: 'btn btn-primary btn-lg btn-block' %>
@@ -30,33 +31,125 @@
           <!-- Space for highlighting community members -->
           <div class = "col-md-10">
             <!-- if statement for sorting. defaults to showing all community members -->
-            
-            <% @users.each do |user| %>
-              <% if user.profile %>
-                <li>
-                  <div class = "well row <%= cycle('white-bg', '') %>" >
-                    <div class = "col-sm-4 text-center">
-                      <% if user.profile.avatar %>
+            <% if params[:title] == 'developers' %>
+              <% @users.each do |user| %>
+                <% if user.profile.job_title == 'Developer' %>
+                  <% if user.profile %>
+                    <li>
+                      <div class = "well row <%= cycle('white-bg', '') %>" >
+                        <div class = "col-sm-4 text-center">
+                          <% if user.profile.avatar %>
+                            <%= link_to user do %>
+                              <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                        <div>
+                          <%= link_to user do %>
+                            <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                          <% end %>
+                          <p>
+                            <%= user.profile.job_title %>
+                            <%  if user.plan_id == 2 %>
+                              <span class= "label label-danger">DevMatch PRO</span>
+                            <% end %>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              <% end %>
+              
+            <% elsif params[:title] == 'entrepreneurs' %>
+              <% @users.each do |user| %>
+                <% if user.profile.job_title == 'Entrepreneur' %>
+                  <% if user.profile %>
+                    <li>
+                      <div class = "well row <%= cycle('white-bg', '') %>" >
+                        <div class = "col-sm-4 text-center">
+                          <% if user.profile.avatar %>
+                            <%= link_to user do %>
+                              <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                        <div>
+                          <%= link_to user do %>
+                            <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                          <% end %>
+                          <p>
+                            <%= user.profile.job_title %>
+                            <%  if user.plan_id == 2 %>
+                              <span class= "label label-danger">DevMatch PRO</span>
+                            <% end %>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              <% end %>
+              
+            <% elsif params[:title] == 'investors' %>
+              <% @users.each do |user| %>
+                <% if user.profile.job_title == 'Investor' %>
+                  <% if user.profile %>
+                    <li>
+                      <div class = "well row <%= cycle('white-bg', '') %>" >
+                        <div class = "col-sm-4 text-center">
+                          <% if user.profile.avatar %>
+                            <%= link_to user do %>
+                              <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                        <div>
+                          <%= link_to user do %>
+                            <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                          <% end %>
+                          <p>
+                            <%= user.profile.job_title %>
+                            <%  if user.plan_id == 2 %>
+                              <span class= "label label-danger">DevMatch PRO</span>
+                            <% end %>
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              <% end %>
+              
+            <% else %>
+              <% @users.each do |user| %>
+                <% if user.profile %>
+                  <li>
+                    <div class = "well row <%= cycle('white-bg', '') %>" >
+                      <div class = "col-sm-4 text-center">
+                        <% if user.profile.avatar %>
+                          <%= link_to user do %>
+                            <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <div>
                         <%= link_to user do %>
-                          <%= image_tag user.profile.avatar.url, class: "user-index-avatar" %>
+                          <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
                         <% end %>
-                      <% end %>
+                        <p>
+                          <%= user.profile.job_title %>
+                          <%  if user.plan_id == 2 %>
+                            <span class= "label label-danger">DevMatch PRO</span>
+                          <% end %>
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <%= link_to user do %>
-                        <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
-                      <% end %>
-                      <p>
-                        <%= user.profile.job_title %>
-                        <%  if user.plan_id == 2 %>
-                          <span class= "label label-danger">DevMatch PRO</span>
-                        <% end %>
-                      </p>
-                    </div>
-                  </div>
-                </li>
+                  </li>
+                <% end %>
               <% end %>
             <% end %>
+            
           </div>
           
         </div>
